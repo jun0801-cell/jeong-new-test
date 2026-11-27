@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html><style type="text/css" id="_jmc_no_tap_highlight_tag_"></style><head>
+
+<meta name="naver-site-verification" content="1dac731afb56798a3eb3f60d3424d850fb8ac936" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.6, user-scalable=1" />
+<link rel="stylesheet" href="css.css?date=0917" />
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="jquery.js"></script>
+<script src="jindo.js"></script>
+<script src="jindo_mobile_component.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM54QC8NP5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM54QC8NP5');
+</script>
+
+
+
+
+
+<script src="sns.js?v=1.1"></script>
+<script>
+var sAgent =  navigator.userAgent;
+if (sAgent.indexOf("WebKit") < 0) {
+	window.onerror = function(){
+		return true;
+	}
+}
+//구글 Analytics
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20527629-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+function resizeImage(url,n){
+	var image = new Image();
+	image.src = url;
+	if(image.width > 300){
+		document.getElementById("_image"+n).width = 300;
+	}
+}
+
+function win_YK(filename,winhow)	{
+//		var msg;
+//		msg = window.open(filename, "WIN_SUB", winhow);
+}
+
+$(document).ready(function(){
+
+	var $body = $(document.body), //자주 사용하기에 캐시되게 변수에 넣어준다
+	$top = '';
+	$top=$('<div>').addClass('top_icon_go').hide().click(function(){  // 클릭이 이벤트 할당
+//		$body.animate({ scrollTop: 0 }); //animation효과로 scollTop=0으로 이동
+       $('html, body').animate({scrollTop : 0});
+//			 return false;
+	})
+	.appendTo($body); 
+	$(window).scroll(function(){
+		var y = $(this).scrollTop();
+		if(y >= 100){
+			$top.fadeIn();
+			$('#art_prev').css({"left" : '0px'}).delay(1000);
+			$('#art_next').css({"right" : '0px'}).delay(1000);
+			setTimeout(function(){
+			$('#art_prev').css({"left" : '-50px'}).delay(1000);
+			$('#art_next').css({"right" : '-50px'}).delay(1000);
+			},2000);
+		}else{
+			$top.fadeOut();
+		}
+	});
+
+ $('.text_size_btn .clsButton').click( function(){
+	 var $contents = $('#con_text'); //alert($contents);
+	 var fontSize = $contents.css('fontSize'); //alert(fontSize);
+	 var num = parseFloat(fontSize, 10); //alert(num);
+	 var unit = fontSize.slice(-2); //alert(unit); // px 오른쪽에서 2자 가져옴
+
+	 //alert(this.id);
+	 if(this.id == "fontB" && fontSize < "30px") {
+		num *= 1.2;
+	 }
+	 else if(this.id == "fontS" && fontSize > "14px") {
+		num /= 1.2;
+	 }
+	 // 폰트 크기 재설정
+	 $contents.css('fontSize', num + unit);
+ });
+
+	$(".km-top-btn").click(function() {
+		 $("#menu-pan").toggle("slide", function(){
+		});
+	});
+
+	$( "#search_btn" ).click(function() {
+	  $( "#search_bar" ).toggle( "slide", function() {
+		//$('#search_input').focus();
+		// Animation complete.
+	  });
+	});
+
+	$(".faq a.dep1").click(function() {
+		$(this).next().slideToggle("fast").parent().siblings().children("ul").hide();
+		return false;
+	});
+
+	$( "#pcclick" ).click(function() { //pc version
+		$.cookie('equipment',1,{ path: '/'});
+		var url = "https://www.kookje.co.kr";    
+		if ("v"=="l"){
+			if (""==""){
+				url = url + "/news2011/asp/sub.htm?code=0900"; 
+			}else{ //기관뉴스
+				url = url + "/news2011/asp/lists.asp?clss_cd="; 
+			}
+		}else if("v"=="v"){
+			url = url + "/news2011/asp/newsbody.asp?code=0900&key=20180724.22024009005"; 
+		}
+		$(location).attr('href',url);
+	});
+
+
+
+	// // 사용할 앱의 JavaScript 키를 설정해 주세요.
+	Kakao.init('1d8cd9c6c55e4afb94e6a8db62ef49ab');
+	// // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+	Kakao.Link.createDefaultButton({
+		container: '#kakao-link-btn',
+		objectType: 'feed',
+		content: {
+			title: msg_title,
+			description: '',
+			imageUrl: 'https://db.kookje.co.kr/news2000/photo/2018/0724/L20180724.22024009005i1.jpg',
+			link: {
+				mobileWebUrl: document.location.href,
+				webUrl: document.location.href
+			}
+		},
+		buttons: [
+			{
+				title: '자세히 보기',
+				link: {
+					mobileWebUrl: document.location.href,
+					webUrl: document.location.href
+				}
+			}
+		]
+	});
+
+
+
+});
+</script>
+<title>부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학 : 국제신문</title>
+
+
+<meta name="description" content="부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학" />
+<meta property="og:title" content="부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학">
+<meta property="og:url" content="https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&key=20180724.22024009005">
+<meta property="og:image" content="https://db.kookje.co.kr/news2000/photo/2018/0724/L20180724.22024009005i1.jpg?38" />
+<meta property="og:site_name" content="국제신문">
+<meta property="og:description" content="부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학.." />
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&amp;key=20180724.22024009005" />
+<meta property="article:author" content="디지털콘텐츠팀 inews@kookje.co.kr" />
+<meta property="article:section" content="포토" />
+<meta property="article:published_time" content="2018-07-23 오후 8:20:42" />
+<meta property="fb:app_id" content="390349274672204" />
+
+<script>
+function _getArticleTitle() {
+	var metas = document.getElementsByTagName("META");
+	var titl = "";
+	for (var i=0;i<metas.length;i++){
+		if (metas[i].name && metas[i].name == "description"){
+			titl = metas[i].content;
+			break;
+		}
+	}
+	if (titl == "") titl = document.title;
+
+	return titl;
+}
+
+var msg_title = _getArticleTitle();
+/*
+// 사용할 앱의 Javascript 키를 설정해 주세요.
+Kakao.init('1d8cd9c6c55e4afb94e6a8db62ef49ab');
+jQuery(function(){
+	// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+	Kakao.Link.createTalkLinkButton({
+		container: '#kakao-link-btn',
+		label: msg_title,
+	  webLink : {
+		text : '기사 보기',
+		url : document.location.href
+	  }
+	});
+});
+*/
+</script>
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Person",
+	"name": "국제신문 - 부산·울산˙경남의 큰 목소리를 지향합니다.",
+	"url": "https://www.kookje.co.kr",
+	"sameAs": [
+		"https://media.naver.com/press/658",
+		"https://v.daum.net/channel/174606/home",
+		"https://www.facebook.com/Busannews",
+		"https://x.com/busaninews",
+		"https://pf.kakao.com/_rhhxmd",
+		"https://www.instagram.com/daily_kookje/",
+		"https://www.youtube.com/busannews"
+	]
+}
+</script> 
+
+</head>
+<body>
+<div data-role="page" id="pageone" data-theme="d"><!--page s-->
+
+<div class="rs-body">
+
+	<div class="rs-main">
+		<div class="rs-title" id="km_top">
+			<h1>
+				
+					<a href="./"><img src="images/logo_black.png" alt="국제신문" style="width:105px; height:23px;" /></a>
+								
+			</h1>
+			<span class="menubtn left"><img src="images/menutab.png" alt="menu" class="km-top-btn" style="width:28px; height:24px;" /></span>
+			<!--<span class="menubtn right" onclick="oRevealSidebarUI.toggleSlide(true)">메뉴</span>-->
+			<span class="menubtn right"><a data-role="none"><img src="images/bt_sch.png" alt="search" id="search_btn" style="width:28px; height:24px;" /></a></span>
+		</div>
+
+		<nav>
+			<ul id="km_category">
+				<li class="ui-btn-active"><a href="./" onclick="tab_setCookie(&#39;tab_num&#39;,0)">뉴스</a></li>
+				<li><a href="sport-entertainment.htm" onclick="tab_setCookie(&#39;tab_num&#39;,1)">스포츠·연예</a></li>
+				<!--<li><a href="/news2011/asp/series.htm" onclick="tab_setCookie('tab_num',1)">기획시리즈</a></li> -->
+				<li><a href="opinion.htm" onclick="tab_setCookie(&#39;tab_num&#39;,2)">오피니언</a></li>
+				<li><a href="video.htm" onclick="tab_setCookie(&#39;tab_num&#39;,3)">동영상</a></li>
+			</ul>
+		</nav>
+
+	
+
+
+			<div id="search_bar">
+			<form id="searchForm" name="search_form" method="post" action="search_result.asp" onsubmit="return kj_search_submit(this)" data-ajax="false">
+			<input type="hidden" name="stitle" />
+				<div class="textbox"><input type="text" name="search_text" id="search_input" data-type="search" class="sinput" placeholder="검색어를 입력하세요" /></div>
+				<input type="submit" value="검색" class="search_btn" />
+			</form>
+			</div>
+
+
+	<!--패널 s-->
+	<div id="menu-pan">
+	<div id="left-menu"> 
+
+<ul class="faq">
+    <li>
+        <a href="#" title="View Answer" class="dep1">뉴스<div class="dep-arr"><span class="btn_ud_u"></span></div></a>
+		<ul class="dep2">
+		<li><a href="news.htm?gbn=l&amp;code=00">전체기사</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0100">정치</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0200">경제</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0300">사회</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0400">국제</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0500">문화</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0600">스포츠</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0700">LIFE</a></li>
+		<li><a href="view.asp?gbn=l&amp;code=0800">IT/과학</a></li>
+		<li><a href="news.htm?gbn=l&amp;code=1900">그림창</a></li>
+		</ul>
+		
+    </li>
+
+    <li>
+        <a href="#" title="View Answer" class="dep1">주말엔<div class="dep-arr"><span class="btn_ud_u"></span></div></a>
+        <ul class="dep2">
+			<li><a href="view.asp?gbn=l&amp;code=0770">여행</a></li>
+			<li><a href="view.asp?gbn=l&amp;code=2200">근교산</a></li>
+			<li><a href="view.asp?gbn=l&amp;code=0760">맛집</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="view.asp?gbn=l&amp;code=1700">오피니언</a>
+    </li>
+
+    <li>
+        <a href="#" title="View Answer" class="dep1">포토·동영상<div class="dep-arr"><span class="btn_ud_u"></span></div></a>
+        <ul class="dep2">
+		 <li><a href="view.asp?gbn=l&amp;code=0900">포토</a></li>
+		 <li><a href="view.asp?gbn=l&amp;code=1000">영상</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#" title="View Answer" class="dep1">기관뉴스<div class="dep-arr"><span class="btn_ud_u"></span></div></a>
+        <ul class="dep2">
+        <li><a href="news.htm?gbn=l&amp;clss_cd=3101">대학뉴스</a></li>
+		    <li><a href="news.htm?gbn=l&amp;clss_cd=3102">전문대뉴스</a></li>
+				<li><a href="news.htm?gbn=l&amp;clss_cd=3103">행정뉴스 동네방네</a></li>
+				<li><a href="news.htm?gbn=l&amp;clss_cd=3104">건강뉴스</a></li>
+				<li><a href="news.htm?gbn=l&amp;clss_cd=3105">공기업뉴스</a></li>
+				</ul>
+		</li>
+    <li><a href="https://www.kookje.co.kr/mobile/pdf.htm">지면보기</a></li>
+    <li><a href="/page/busanmal" target="_blank">부산말탐구생활</a></li>
+    <li><a href="/contents/" target="_blank"><img src="/kookje/image_new/ol_contents1.png" alt="국제신문 콘텐츠뉴스 뭐라노" style="height:18px;" /></a></li>
+	<li><a href="https://www.youtube.com/user/kookjenews" target="_blank"><div class="kookjeyoutube"><img src="/kookje/image_new/ol_video.png" alt="국제신문 유튜브 비디토리" style="height:18px;" /></div></a></li>
+	<li><a href="https://www.youtube.com/user/busannews" target="_blank"><div class="kookjeyoutube"><img src="/kookje/image_new/ol_youtube.png" alt="국제신문 유튜브 비디토리" style="height:18px;" /></div></a></li>
+    <!--<li>
+        <a href="#" title="View Answer" class="dep1">외국어<div class="dep-arr"><span class="btn_ud_u"></span></div></a>
+        <ul class="dep2">
+					<li><a href="view.asp?gbn=l&amp;code=2010">생활영어</a></li>
+					<li><a href="view.asp?gbn=l&amp;code=2030">생활중국어</a></li>
+				</ul>
+    </li>-->
+    <li>
+		
+        <a href="login.asp">로그인</a>
+		
+		</li>
+</ul>
+
+<input type="button" value="닫기" class="km-top-btn" style="float:right;border:0;padding:10px;" />
+
+  </div> 
+  </div>
+  <!--패널 e-->
+
+  <div class="ui-content km_content">
+
+	<!--컨텐츠시작-->
+
+
+	<!--left s-->
+	<div id="nctl">
+
+		
+		<div id="art_prev"><!--<a class="btn_side_l"><span>다음 기사</span></a>--></div> 
+		<div id="art_next"><!--<a class="btn_side_r"><span>이전 기사</span></a>--></div>
+		
+
+		<!--구독이벤트-->
+		<!--
+		
+-->
+
+		<div id="news_box_01" class="news_box_01">
+
+
+		
+			<div id="article_flick_wrap" class="article_flick_wrap" style="overflow: hidden; z-index: 2000;">
+				<div class="flick-container" style="left: -100%; top: 0px; position: relative; height: 1255px; transition-property: -webkit-transform; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); width: 100%; clear: both;">	
+					<div id="layer1" class="flick-ct" style="height: 100%; transition-property: -webkit-transform; transition-duration: 0ms; transform: translate3d(100%, 0px, 0px); position: absolute; width: 100%; left: 0px; top: 0px; float: left;">
+						<div id="article">
+						<!-- 본문시작 -->
+						<div id="news_hdad">
+<div class="news_title"><h2>부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학</h2></div>
+<div id="info_edit">
+<div class="reporter">
+디지털콘텐츠팀 inews@kookje.co.kr
+ | 2018.07.23 20:20</div></div><div><div class="news_sns"><a id="kakao-link-btn" href="javascript:;"><img src="images/sns_kt_g.png" alt="카카오톡" /></a> <a href="javascript:sendNaver(&#39;부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학&#39;,&#39;https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&amp;key=20180724.22024009005&#39;)"><img src="images/sns_nb_g.png" alt="네이버블로그" /></a> <a href="javascript:send_twitter(&#39;부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학&#39;,&#39;https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&amp;key=20180724.22024009005&#39;)"><img src="images/twitter.png" alt="엑스" /></a> </div><div class="text_size_btn"><span class="btn_plus clsButton" id="fontB"></span><span class="btn_minus clsButton" id="fontS"></span></div></div></div>
+<div id="view_htext">
+<div id="con_text" class="news_txt">
+부산과학기술대학교(총장 강기성) 의무행정과 베트남 유학생 20여 명은 지난 18일 누네빛안과(대표원장 박효순)를 견학했다.<br><table border="0" cellpadding="0" cellspacing="0" width="100%" align="center"><tbody><tr><td align="center"><a href="javascript:win_YK('/news2011/asp/photo_view.asp?img_fn=20180724.22024009005i1.jpg')"><img class="newsimg" border="0" alt="" src="https://db.kookje.co.kr/news2000/photo/2018/0724/L20180724.22024009005i1.jpg" width="600" /></a></td></tr><tr><td colspan="2" height="3"></td></tr></tbody></table><div class="con_copyright">ⓒ국제신문(www.kookje.co.kr), 무단 전재 및 재배포 금지</div><div id="news_sns"><a id="kakao-link-btn" href="javascript:;"><img src="images/sns_kt_g.png" alt="카카오톡" /></a> <a href="javascript:sendNaver(&#39;부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학&#39;,&#39;https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&amp;key=20180724.22024009005&#39;)"><img src="images/sns_nb_g.png" alt="네이버블로그" /></a> <a href="javascript:send_twitter(&#39;부산과학기술대학교 의무행정과 베트남 유학생들, 누네빛안과 견학&#39;,&#39;https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0900&amp;key=20180724.22024009005&#39;)"><img src="images/twitter.png" alt="엑스" /></a> </div></div></div>  <iframe name="frm_count" frameborder="0" height="0px" width="0px" src="/news2011/asp/hit_cnt.asp?key=20180724.22024009005"></iframe>
+
+						<!-- 분문끝  -->
+
+
+<div class="soft_box" style="margin:0 10px 20px;line-height:2.3em;"><!--sns 바로가기-->
+<a href="http://plus.kakao.com/home/@국제신문" target="_blank"><span style="background:#fae101;color:#3c1e1e;padding:5px 10px;border-radius:0.3em;font-weight:bold;">국제신문 카카오플러스 친구</span></a><br />
+<a href="https://www.facebook.com/Busannews/" target="_blank"><span style="background:#22407d;color:white;padding:5px 10px;border-radius:0.3em;">국제신문 공식 페이스북</span></a>  <a href="https://www.instagram.com/daily_kookje/" target="_blank"><span style="background: linear-gradient(#4346b9, #d83789);color:white;padding:5px 10px;border-radius:0.3em;">인스타그램</span></a>
+</div>
+
+					<div class="soft_box">
+					<a href="/contents/" target="_blank"><img src="/kookje/images/contents/what.jpg?v=1" style="width:100%;" alt="국제신문 뉴스레터" /></a>
+					</div>
+
+			<div id="view_entertainment"><ul class="en_lst"><li class="type_a"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261120.22014006295" rel="external"><img src="/news2011/screennews/510_20261120_20261120.22014006295i1.jpg" /><span class="mask2"></span><p class="t ellipsis mellipsis">디즈니 세계관에 한국적 이야기…K-콘텐츠 글로벌 확장 박차</p></a></li>
+<li class="type_a"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261118.22014005374" rel="external"><img src="/news2011/screennews/510_20261120_20261118.22014005374i1.jpg" /><span class="mask2"></span><p class="t ellipsis mellipsis">이제야  즐기는 연기…‘칸의 여왕’ 마음이 편안해졌다</p></a></li>
+<li class="type_a"><a href="/news2011/asp/newsbody.asp?code=1600&amp;key=20261105.22014001462" rel="external"><img src="/news2011/screennews/510_20261120_20261105.22014001462i1.jpg" /><span class="mask2"></span><p class="t ellipsis mellipsis">조선의 궁인데…이름도 옷도 서양식 K-사극, 판타지 세계관 확장 통할까</p></a></li>
+<li class="type_a"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261104.22014001054" rel="external"><img src="/news2011/screennews/510_20261120_20261104.22014001054i1.jpg" /><span class="mask2"></span><p class="t ellipsis mellipsis">“끝내 알 수 없었던 어머니 마음…그 알 수 없음이 인간이죠”</p></a></li>
+<li class="type_b"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261102.22020000200" class="ellipsis">‘국민아버지’ 배우 최불암 별세…문화체육부 금관문화훈장 추서(종합)</a></li>
+<li class="type_b"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261030.99099008980" class="ellipsis">‘영원한 수사반장’ 최불암 별세…향년 87세</a></li>
+<li class="type_b"><a href="/news2011/asp/newsbody.asp?code=1600&amp;key=20261022.22014006357" class="ellipsis">“우리가 알던 그 시절 SM 맛” 이수만표 흥행 공식 또 적중…돌풍 속 잡음도</a></li>
+<li class="type_b"><a href="str_url8" class="ellipsis">str_tit8</a></li>
+<li class="type_b"><a href="str_url9" class="ellipsis">str_tit9</a></li>
+<li class="type_b"><a href="/news2011/asp/newsbody.asp?code=0500&amp;key=20261120.220140062950" class="ellipsis">디즈니 세계관에 한국적 이야기…K-콘텐츠 글로벌 확장 박차0</a></li>
+
+</ul></div>
+						</div>
+					</div>
+					<div id="layer2" class="flick-ct" style="height: 100%; transition-property: -webkit-transform; transition-duration: 0ms; transform: translate3d(200%, 0px, 0px); position: absolute; width: 100%; left: 0px; top: 0px; float: left;"></div>
+					<div id="layer3" class="flick-ct" style="height: 100%; transition-property: -webkit-transform; transition-duration: 0ms; transform: translate3d(0%, 0px, 0px); position: absolute; width: 100%; left: 0px; top: 0px; float: left;"></div>
+				</div>
+
+			</div>
+
+
+			
+
+
+		<!--<div class="line_"></div>-->
+
+
+		<div>
+			<h4 class="news_s_title mt-1">[많이 본 뉴스]</h4>
+			<div class="news_box_01">
+				<ul class="news_list news_list_hit">
+				<li><span class="num">1</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22001008716" ><span class="ncon ellipsis2">통합 LCC 본사 부산 온다…‘제 2 허브공항’ 날개(종합)</span></a></li>
+<li><span class="num">2</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22006008698" ><span class="ncon ellipsis2">올 수능 ‘킬러’ 빠져 평이…영어 1등급 3배 급증 전망</span></a></li>
+<li><span class="num">3</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22006008695" ><span class="ncon ellipsis2">낡은 해운대 관광안내소 새로 지을까</span></a></li>
+<li><span class="num">4</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22006008696" ><span class="ncon ellipsis2">참전용사 후손과 약속 지켰다, 유엔공원에 선 강뉴부대 기념비</span></a></li>
+<li><span class="num">5</span><a href="/news2011/asp/newsbody.asp?code=0200&amp;key=20261127.22003008713" ><span class="ncon ellipsis2">김해 중장거리 직항 확충…정비·관광·마이스 동반성장 기대</span></a></li>
+<li><span class="num">6</span><a href="/news2011/asp/newsbody.asp?code=0900&amp;key=20261127.22001008710" ><span class="ncon ellipsis2">기다렸던 ‘크리스마스 빌리지’ 열렸다</span></a></li>
+<li><span class="num">7</span><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008494" ><span class="ncon ellipsis2">거인과 1년 더…레이예스도 YES</span></a></li>
+<li><span class="num">8</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22001008715" ><span class="ncon ellipsis2">김석준 교육감 ‘해직교사 특채’ 무죄 확정(종합)</span></a></li>
+<li><span class="num">9</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22002008549" ><span class="ncon ellipsis2">악성 민원 학부모 교육감 명의 고발</span></a></li>
+<li><span class="num">10</span><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22002008515" ><span class="ncon ellipsis2">‘특정인 구제’ 여부 뒤집힌 판단…“檢 무리한 기소”</span></a></li>
+
+				</ul>
+				
+			</div>
+		</div>
+
+
+
+
+		</div>
+
+			
+	</div>
+	<!--left e-->
+
+
+	<!--right s-->
+	<div id="nctr">
+		
+
+
+		<div class="news_box_01">
+		<h4 class="news_s_title" style="border-bottom:0px;">시인 최원준의 음식문화 잡학사전</h4>
+						<ul class="photo_list">
+				<li><a href="view.asp?gbn=v&amp;code=0500&amp;key=20261125.22010007412" rel="external"><div class="pls"><img src="/news2011/screennews/478_20261125_20261125.22010007412i1.jpg" class="pls_img" alt="&lt;88&gt; 길조의 상징, 참돔" /></div><span class="pls_title mellipsis">&lt;88&gt; 길조의 상징, 참돔</span></a></li>
+				<li><a href="view.asp?gbn=v&amp;code=0500&amp;key=20261028.22014007783" rel="external"><div class="pls"><img src="/news2011/screennews/478_20261125_20261028.22014007783i1.jpg" class="pls_img" alt="&lt;87&gt; 여수 ‘돌산 갓김치’와 갓김치 음식" /></div><span class="pls_title mellipsis">&lt;87&gt; 여수 ‘돌산 갓김치’와 갓김치 음식</span></a></li>
+			</ul>
+
+
+		</div>
+
+		<div class="news_box_01">
+		<ul class="left news_list">
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22001008716" class="f_news_relGisa2_list">■ 통합 LCC 본사 부산 온다…‘제 2 허브공항’ 날개(종합)</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0100&amp;key=20261127.22001008714" class="f_news_relGisa2_list">■ 지광 꼼수 체납…법인계좌 조회토록 법 개정 추진</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0100&amp;key=20261127.22005008709" class="f_news_relGisa2_list">■ 韓 ‘자력 복당’ 예고…張, 징계조작 주장 윤리위원 해임 맞불</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261127.22006008698" class="f_news_relGisa2_list">■ 올 수능 ‘킬러’ 빠져 평이…영어 1등급 3배 급증 전망</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.22003008260" class="f_news_relGisa2_list">■ 낙동강하구 국가도시공원 되려면…“이용과 보전 협력구조 절실”</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0200&amp;key=20261126.22011008254" class="f_news_relGisa2_list">■ 재무구조 개선 성과…롯데 ‘월드타워’ 담보 해지</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.22004008246" class="f_news_relGisa2_list">■ 불법 교육시설 철퇴…부산 미인가 국제학교 2곳 존폐 기로</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0100&amp;key=20261126.22004008138" class="f_news_relGisa2_list">■ 수능 AI부정행위 차단·처벌 법안 봇물</a></li>
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.22010008238" class="f_news_relGisa2_list">■ 김해 구조한 유기동물 60% 죽어…市, 직영보호센터 추진</a></li>
+</ul>
+
+
+		</div>
+
+
+		<div class="news_box_01">
+		<article>
+			<a href="news.htm?code=0600"><h3>스포츠 +</h3></a>
+			<div class="spt2">
+<a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008494"><span class="sthumb"><img src="/news2011/screennews/514_20261127_20261127.22015008494i1.jpg" alt="거인과 1년 더…레이예스도 YES" /></span><span class="scont ellipsis2">거인과 1년 더…레이예스도 YES</span>
+</a><ul><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008494">
+</a><li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008494" ></a><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008559" >KBO 가장 빛난 별 김도영</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261127.22015008490" >권순우 선전했지만…이탈리아는 ‘통곡의 벽’</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261126.22015008107" >타 구단 외인 퍼즐 맞추는데…거인은 신중 모드</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0600&amp;key=20261126.22015007930" >김하성 MLB 남는다…67억 원에 디트로이트行</a></li> 
+</ul>
+</div>
+
+
+		</article>
+		</div>
+
+
+		<div class="news_box_01">
+		<article>
+			<h3>울산·경남 소식</h3>
+			<div class="spt2">
+<a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008540"><span class="sthumb"><img src="/news2011/screennews/511_20261127_20261126.99099008540i1.jpg" alt="금전 문제로 갈등 빚던 동거녀 살해한 남성에게 중형 선고" /></span><span class="scont ellipsis2">금전 문제로 갈등 빚던 동거녀 살해한 남성에게 중형 선고</span>
+</a><ul><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008540">
+</a><li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008540"></a><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008408">양산시의회, 시민축구단 창단 &#39;제동&#39;…출연금 동의안 1표차 부결</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008476">&#39;남학생이 텀블러에 몰래 소변&#39;…&#39;학급 교체&#39; 그치자 피해 여고생 자퇴</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008398">진주시, 시설채소 바이러스 피해 농가에 20억 원 융자 지원</a></li> 
+<li class="ellipsis"><a href="/news2011/asp/newsbody.asp?code=0300&amp;key=20261126.99099008349">밤사이 창원 단독 주택서 불…60대 거주자 사망</a></li> 
+</ul>
+</div>
+
+
+		</article>
+		</div>
+
+
+		<div class="news_box_01">
+			<div style="width:50%;float:left;" class="left">
+			<a href="news.htm?code=2200"><h4 class="news_s_title">근교산</h4></a>
+						<ul class="photo_list">
+				<li class="h"><a href="view.asp?gbn=v&amp;code=2200&amp;key=20261126.22012006099" rel="external"><div class="pls"><img src="/news2011/screennews/498_20261126_20261126.22012006099i1.jpg" class="pls_img" alt="근교산&amp;그너머…태화강100리길 3구간" /></div><span class="pls_title mellipsis">근교산&amp;그너머…태화강100리길 3구간</span></a></li>
+			</ul>
+
+</div>
+			<div style="width:50%;float:right;" class="right">
+			<a href="news.htm?code=1600"><h4 class="news_s_title">주말엔&amp;라이프</h4></a>
+						<ul class="photo_list">
+				<li class="h"><a href="view.asp?gbn=v&amp;code=1600&amp;key=20261126.22013007616" rel="external"><div class="pls"><img src="/news2011/screennews/497_20261126_20261126.22013007616i1.jpg" class="pls_img" alt="발레로 만나는 겨울 동화세계…부산표 ‘호두까기 인형’" /></div><span class="pls_title mellipsis">발레로 만나는 겨울 동화세계…부산표 ‘호두까기 인형’</span></a></li>
+			</ul>
+
+</div>
+		</div>
+
+		
+	</div>
+	<!--right e-->
+
+	</div>
+
+		</div><!--rs-main-->
+
+</div>
+<!--code@-->	
+	
+	<div id="km_footer"><!--footer s-->
+		<div><a href="./" class="footer_logo ti9">국제신문</a></div>
+		
+		<div class="footer_link">
+			<a id="pcclick" style="cursor:pointer;">PC버전</a><a href="https://twitter.com/busaninews" target="_blank">엑스</a>
+		</div>
+		
+		<div class="footer_copy">
+		<div style="margin:20px auto 10px"><span>부산광역시 연제구 중앙대로 1217</span> / <span>대표전화 : 051-500-5114</span></div>
+		Copyright ⓒ 2015 All rights reserved by 국제신문</div>
+	</div><!--footer 2-->
+
+</div><!--page e-->
+
+<!-- Naver Channel connect -->
+<span itemscope="" itemtype="http://schema.org/Organization">
+	<link itemprop="url" href="https://www.kookje.co.kr">
+	<a itemprop="sameAs" href="https://media.naver.com/press/658"></a>
+	<a itemprop="sameAs" href="https://www.facebook.com/Busannews"></a>
+	<a itemprop="sameAs" href="https://www.youtube.com/busannews"></a>
+	<a itemprop="sameAs" href="https://x.com/busaninews"></a>
+	<a itemprop="sameAs" href="https://www.instagram.com/daily_kookje/"></a>
+ </span>
+<!-- Naver Channel connect -->
+
+<script type="text/javascript" src="jindo.m.RevealSidebarUI.js"></script>
+<script type="text/javascript" src="https://101.livere.co.kr/B/passport/livere8_passport.js" charset="utf-8"></script>
+<script src="/jquery/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+
+/*
+setTimeout(function(){
+	$('#art_prev').css({"left" : '-50px'}).delay(1000);
+	$('#art_next').css({"right" : '-50px'}).delay(1000);
+},3000);
+*/
+var height_size = function(){
+	var art_h = jQuery('#article').height();
+	jQuery('.article_flick_wrap .flick-container').css('height',art_h+'px');
+}
+
+var flk_stop = 1;
+var oSlideFlicking = null;
+
+oSlideFlicking = new jindo.m.SlideFlicking(jindo.$('article_flick_wrap'),{
+	bHorizontal : true,
+	bUseCircular : true,
+	bUseMomentum : false,
+	bAutoResize : true,
+	bUseDiagonalTouch : false,
+	nFlickThreshold : 290,
+	nDuration : 1000
+}).attach({
+	'touchStart' : function(oCustomEvt){
+	},
+	'touchEnd' : function(oCustomEvt){
+		var distence = oCustomEvt.nDistanceX;
+		if (Math.abs(distence) > 290){
+			if (distence > 0){
+				before_article();
+			} else {
+				after_article();
+			}
+		}
+	},
+	'beforeFlicking' : function(oCustomEvt){
+
+	},
+	'flicking' : function(oCustomEvt){
+
+	},
+	'beforeRestore' : function(oCustomEvt){
+
+	},
+	'restore' : function(oCustomEvt){
+
+	}	
+});
+jindo.$Fn(function(evt){
+	evt.stop();
+	before_article();
+},this).attach(jindo.$('art_prev'),'click');
+
+jindo.$Fn(function(evt){
+	evt.stop();
+	after_article();
+},this).attach(jindo.$('art_next'),'click');
+
+function before_article(){
+	//alert('prev_article');
+	location.href="view.asp?gbn=v&code=0900&key=20180724.22024009005&g=0";
+}
+
+function after_article(){
+	//alert('next_article');
+	location.href="view.asp?gbn=v&code=0900&key=20180724.22024009005&g=1";
+}
+
+$(window).resize(function () {
+	height_size();
+}).resize();
+
+$(window).load(function(){
+	height_size();
+});
+
+
+
+function kj_search_submit(){
+	str = escape($.trim($('input[name=search_text]').val())); //ajax form 값 escape
+	if (str=="")	{
+		alert("검색어를 입력하세요");		
+		$('#search_input').val('');
+		$('#search_input').focus();
+		return false;
+	}else{
+		$('input[name=stitle]').val(str);
+		return true;
+	}
+}
+</script>
+
+
+<div class="top_icon_go" style="display: none;"></div></body></html>
